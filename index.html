@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>xat online chat. Profile for Hostradios</title>
+<LINK REL="SHORTCUT ICON" href="//xat.com/web_gear/chat/icon.ico">
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+body {
+	background: repeating-linear-gradient(0deg, rgba(241, 44, 162, 0.6) 1px, transparent 2px, transparent 6px), repeating-linear-gradient(90deg, rgba(241, 44, 162, 0.6) 1px, transparent 2px, transparent 6px), radial-gradient(#ffffff, #ffffff)
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	user-select: none
+}
+
+:before,
+:after {
+	content: '';
+	position: absolute
+}
+
+:root {
+	--font-1: Roboto, sans-serif;
+	--font-2: Arimo, sans-serif;
+	--font-3: Oswald, sans-serif
+}
+
+a {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase
+}
+
+span {
+	display: inline-block
+}
+
+p {
+	font-family: var(--font-2);
+	font-size: .9em
+}
+
+#jd_main,
+.jd_app {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	font-family: var(--font-3);
+	font-size: 1em;
+	color: #9D2021;
+	overflow: hidden
+}
+
+.jd_3d {
+	width: 620px;
+	height: 440px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	perspective: 1000px
+}
+
+.jd_3d:after {
+	width: 450px;
+	height: 70px;
+	border-radius: 50%;
+	background: #000;
+	left: calc(50% - 225px);
+	bottom: -35px;
+	filter: blur(25px);
+	opacity: .8;
+	z-index: -1
+}
+
+.jd_cube {
+	width: 620px;
+	height: 440px;
+	transform-style: preserve-3d;
+	transform: translateZ(-220px) rotateX(0);
+	transition: all .5s linear;
+	position: relative
+}
+
+[class*='jd_page'] {
+	width: 620px;
+	height: 440px;
+	border: solid 10px #F12CA2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #FB5FA5
+}
+
+.jd_page_tab_home {
+	transform: translateZ(220px)
+}
+
+.jd_page_tab_about {
+	transform: translateZ(-220px) rotateX(-90deg);
+	-webkit-transform-origin: bottom center;
+	transform-origin: bottom center
+}
+
+.jd_page_tab_music {
+	transform: translateZ(-220px) rotateX(90deg);
+	-webkit-transform-origin: top center;
+	transform-origin: top center
+}
+
+.jd_page_tab_clear {
+	transform: translateZ(-220px)
+}
+
+.jd_container {
+	width: 600px;
+	height: 420px;
+	position: relative;
+	display: flex;
+	overflow: hidden
+}
+
+[class$='_home'] .jd_col_left {
+	width: 250px;
+	padding: 10px
+}
+
+[class$='_home'] .jd_col_right {
+	width: 350px
+}
+
+h1:nth-child(1) {
+	font-size: 3.5em;
+	line-height: 65px;
+	color: rgba(252, 253, 236, 0.97)
+}
+
+h1:nth-child(2) {
+	font-size: 3em;
+	line-height: 40px
+}
+
+h1 span {
+	font-size: .5em;
+	line-height: 20px;
+	padding-top: 5px
+}
+
+.jd_desc {
+	margin-top: 20px;
+	color: rgba(252, 253, 236, 0.97)
+}
+
+
+.jd_wel {
+	margin-top: 30px;
+	font-size: 1.3em
+}
+
+.jd_nav {
+	position: absolute;
+	width: 50px;
+	height: 420px;
+	left: 225px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 20px;
+	align-items: center
+}
+
+.jd_link {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	box-shadow: 0 0 0 5px rgba(252, 253, 236, 0.97);
+	margin-bottom: 30px;
+	transition: all .3s ease-out
+}
+
+.jd_link:hover {
+	transform: rotate(360deg)
+}
+
+.jd_link:first-child {
+	background: url(https://i.postimg.cc/NG2GqTcq/icon-leaf.png)center center no-repeat, rgba(241, 44, 162, 0.6);
+	background-size: cover
+}
+
+.jd_link:last-child {
+	background: url(https://i.postimg.cc/qMfJkRJt/icon-music.png)center center no-repeat, rgba(241, 44, 162, 0.6);
+	background-size: cover
+}
+
+#-jd_1:target .jd_cube {
+	transform: translateZ(-220px) rotateX(90deg)
+}
+
+#-jd_2:target .jd_cube {
+	transform: translateZ(-220px) rotateX(-90deg)
+}
+
+[class$='_about'] .jd_col_left {
+	width: calc(100% - 317px);
+	padding: 10px
+}
+
+[class$='_about'] .jd_col_right {
+	width: 317px;
+	border-left: solid 10px #FEF5F5
+}
+
+[class$='_music'] .jd_col_left {
+	width: 180px;
+	padding: 10px
+}
+
+[class$='_music'] .jd_col_right {
+	width: 420px
+}
+
+.jd_btn_back {
+	position: absolute;
+	width: 100px;
+	height: 32px;
+	line-height: 32px;
+	background: url(https://i.postimg.cc/Gm6NwBJt/Group-5.png) 10px center no-repeat, #FEF5F5;
+	color: #FCC3C3;
+	top: 0;
+	left: 0
+}
+
+h3 {
+	margin-top: 50px;
+	font-size: 3em;
+	line-height: 45px
+}
+
+.jd_verse {
+	font-size: 1.2em;
+	margin-top: 20px;
+	font-family: var(--font-3)
+}
+
+.jd_verse span {
+	color: rgba(254, 245, 245, 0.36);
+}
+
+h2 {
+	margin-top: 40px;
+	font-size: 1.9em
+}
+
+.jd_video {
+	width: 400px;
+	height: 226px;
+	margin: 10px;
+	background: #111;
+	box-shadow: 0 10px #FEF5F5
+}
+
+.jd_letter {
+	width: 400px;
+	height: 150px;
+	margin: 20px 10px;
+	color: rgbaFEF5F5;
+	overflow-y: auto
+}
+
+.jd_footer {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	color: rgba(255, 255, 255, .5);
+	bottom: 10px;
+	z-index: -1
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background: #111
+}
+
+::-webkit-scrollbar-thumb {
+	background: #E9E7D8;
+}
+
+</style>
+<div id="jd_main">
+ <div id="-jd_1">
+ <div id="-jd_2">
+ <div id="-jd_3">
+ <div class="jd_app">
+ <div class="jd_3d">
+ <div class="jd_cube">
+ <div class="jd_page_tab_home">
+ <div class="jd_container">
+ <div class="jd_col_left">
+ <h1>MEU<br />NOME<br />È:</h1>
+ <h1>Katia<br /><span>1543038828</span></h1>
+ <p class="jd_desc">
+ "Sorte do meu sorriso,ter voce como motivo :)"
+ </p>
+ <span class="jd_wel">Bem vindo ao meu xatspace!</span>
+ </div>
+ <div class="jd_nav">
+ <a class="jd_link" href="#-jd_1"></a>
+ <a class="jd_link" href="#-jd_2"></a>
+ </div>
+ <div class="jd_col_right">
+ <img class="jd_banner" src="https://img.xatblog.net/image/xuPwTJjffr.jpg" height="414" width="350" />
+ </div>
+ </div>
+ </div>
+ <div class="jd_page_tab_about">
+ <div class="jd_container">
+ <div class="jd_col_left">
+ <a class="jd_btn_back" href="#">back</a>
+ <h3>Katia Rocha</h3>
+ <span class="jd_id">1543038828</span>
+ <p class="jd_verse">
+ Tres coisas que eu gosto:o mundo, as pessoas e o destino. O mundo porque voce esta nele.As pessoas porque voce e uma delas e o destino porque pos voce no meu caminho.!!!! 
+ <br /><br />
+ <span>by Katia Rocha</span>
+ </p>
+ </div>
+ <div class="jd_col_right">
+ <img class="jd_user" src="https://img.xatblog.net/image/9xxIXh5yRf.png" />
+ </div>
+ </div>
+ </div>
+ <div class="jd_page_tab_music">
+ <div class="jd_container">
+ <div class="jd_col_left">
+ <a class="jd_btn_back" href="#">back</a>
+ <h2>
+ ★❤Amar e deixar o outro ser quem e nao quem a gente gostaria que fosse)❤★
+ </h2>
+ </div>
+ <div class="jd_col_right">
+ <div class="jd_video">
+<iframe width="400" height="226" src="https://www.youtube.com/embed/w7QPx5BHJLU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ </div>
+ <p class="jd_letter">
+LETRA: 
+Mesmo longe não deixo esperar 
+em cada segundo eu vou mostrar 
+o quanto eu te quero 
+venero 
+não vou negar.
+A distância não será a razão 
+está longe mas perto do coração 
+por favor me entenda 
+me espera 
+não diga não
+
+Pode o sol não voltar a brilhar 
+mas eu não vou deixar de te amar
+
+Tudo em mim
+quer tudo em ti
+nem o céu e nem o mar 
+vão poder nos separar
+Porque tudo em mim 
+ama tudo em ti
+para mim tudo é perfeito
+mesmo o seu maior defeito
+sei que precisa de mim
+como eu preciso de ti
+Oh..
+
+Vou dizer as vezes que precisar 
+dizer até você acreditar 
+todos os segredos 
+e os medos
+eu vou te contar
+você é o que eu mais preciso
+sem você não faz sentido 
+e cada segundo 
+no meu mundo 
+eu vou te guardar 
+
+pode o sol não voltar a brilhar
+mas eu não vou deixar de te amar
+
+Tudo em mim
+quer tudo em ti
+nem o céu e nem o mar 
+vão poder nos separar
+Porque tudo em mim 
+ama tudo em ti
+para mim tudo é perfeito
+mesmo o seu maior defeito
+sei que precisa de mim
+como eu preciso de ti
+
+Você sabe que sim
+pode o sol não voltar a brilhar 
+mas eu não vou deixar de te amar
+
+Tudo em mim
+quer tudo em ti
+nem o céu e nem o mar 
+vão poder nos separar
+Porque tudo em mim 
+ama tudo em ti
+para mim tudo é perfeito
+mesmo o seu maior defeito
+sei que precisa de mim
+
+Oh oh oh oh oh oh oh..
+ </p>
+ </div>
+ </div>
+ </div>
+ <div class="jd_page_tab_clear"></div>
+ </div>
+ </div>
+ <div class="jd_footer">
+ <span>© 2021 by ALVIN - Desing</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+</head>
+<body>
